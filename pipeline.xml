@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:pipeline  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns:ns1='hudsonci.jobcreator.v1'
+   xsi:schemaLocation='hudsonci.jobcreator.v1 file:/mnt/nas/data/source-code/hudson-jobcreator/target/schemas/jobcreator-v1.xsd'>
+  <name>hudson-on-hudson</name>
+  <groups>
+    <!-- group to build hudson plugins-->
+    <group name="hudson-plugins" pattern="plugin_${job}">
+      <include>
+        <job>blacklist</job>
+        <job>clover</job>
+      </include>     	      
+    </group>
+  </groups>
+  <jobs>
+    <!-- job for standard plugins -->
+    <job name="standard-plugin" template="build_standard_plugin.ftl">
+      <propertyset>
+        <property name="history.build.days">-1</property>
+        <property name="history.build.number">10</property>
+        <property name="history.artifact.days">-1</property>
+        <property name="history.artifact.number">-1</property>
+        <property name="scm.trigger">*/5 * * * *</property>
+        <property name="scm.type">github</property>
+        <property name="scm.github.branch">master</property>
+      </propertyset> 
+    </job>
+
+    <!-- job for console plugin -->
+    <job  name="blacklist" >
+      <inherit>
+        <job>standard-plugin</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Plugin: Blacklist</property>
+        <property name="scm.github.path">/hudson-plugins/blacklist-plugin.git</property>
+      </propertyset>
+    </job>
+
+    <job  name="clover" >
+      <inherit>
+        <job>standard-plugin</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Plugin: Clover</property>
+        <property name="scm.github.path">/hudson-plugins/clover-plugin.git</property>
+      </propertyset>
+    </job>
+  </jobs>
+</ns1:pipeline>
