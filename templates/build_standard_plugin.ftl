@@ -9,15 +9,15 @@
     <#include "/fragments/jobrevision.ftl">  
     <#include "/fragments/displayname.ftl">
   </properties>
-  <#if scm?? && scm.type?? && scm.type == "github" >
-      <#include "/fragments/scm-github.ftl">
+  <#if scm?? && scm.type?? && scm.type == "git" >
+      <#include "/fragments/scm-git.ftl">
   </#if>
   <advancedAffinityChooser>false</advancedAffinityChooser>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <jdk>$[jdk}</jdk>
+  <jdk>${jdk}</jdk>
   <triggers class="vector">
     <#include "/fragments/scm-trigger.ftl">
     <maven-dependency-trigger>
@@ -61,6 +61,13 @@
       <notifyIfUnstable>false</notifyIfUnstable>
     </maven-dependency-notifier>
     <hudson.plugins.claim.ClaimPublisher/>
+<#if mailer??>
+    <hudson.tasks.Mailer>
+      <recipients>${mailer.recipients}</recipients>
+      <dontNotifyEveryUnstableBuild>${mailer.notalways}</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>${mailer.breakers}</sendToIndividuals>
+    </hudson.tasks.Mailer>
+</#if>
   </publishers>
   <buildWrappers/>
 </project>

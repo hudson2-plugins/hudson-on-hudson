@@ -5,10 +5,10 @@
       <name>origin</name>
       <uris>
         <org.eclipse.jgit.transport.URIish>
-          <scheme>git</scheme>
-          <path>${scm.github.path}</path>
+          <scheme>${scm.git.scheme}</scheme>
+          <path>${scm.git.path}</path>
           <port>-1</port>
-          <host>github.com</host>
+          <host>${scm.git.host}</host>
         </org.eclipse.jgit.transport.URIish>
       </uris>
       <pushURIs/>
@@ -31,7 +31,7 @@
   </remoteRepositories>
   <branches>
     <hudson.plugins.git.BranchSpec>
-      <name>${scm.github.branch}</name>
+      <name>${scm.git.branch}</name>
     </hudson.plugins.git.BranchSpec>
   </branches>
   <mergeOptions/>
@@ -42,7 +42,7 @@
   <wipeOutWorkspace>false</wipeOutWorkspace>
   <pruneBranches>false</pruneBranches>
   <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
-  <gitTool>Default</gitTool>
+  <gitTool>${scm.git.tool}</gitTool>
   <submoduleCfg class="list"/>
   <excludedRegions></excludedRegions>
   <excludedUsers></excludedUsers>

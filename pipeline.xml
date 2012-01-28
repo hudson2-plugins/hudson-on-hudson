@@ -5,314 +5,404 @@
   <name>hudson-on-hudson</name>
   <groups>
     <!-- group to build hudson plugins-->
-    <group name="hudson-plugins" pattern="plugin_${job}">
+    <group name="all" pattern="${job}">
       <include>
-        <job>blacklist</job>
-        <job>clover</job>
-        <job>cobertura</job>
-        <job>console</job>
-        <job>crowd2</job>
-        <job>cvs</job>
-        <job>dependency-viewer</job>
-        <job>deploy</job>
-        <job>dimensionsscm</job>
-        <job>displayname</job>
-        <job>email-ext</job>
-        <job>git</job>
-        <job>jcaptcha</job>
-        <job>jfreechart</job>
-        <job>jna-native</job>
-        <job>jumble</job>
-        <job>label-column-view</job>
-        <job>liverebel-deploy</job>
-        <job>maven-repository-server</job>
-        <job>mks-integrity</job>
-        <job>multiline-tabbar</job>
-        <job>surround-scm</job>
-        <job>ui-samples</job>
-        <job>upstream-downstream-view</job>
-        <job>vault</job>
-        <job>weblogic-deployer</job>
-        <job>windows-slaves</job>
-        <job>wrapper-script</job>
+        <job>plugin_blacklist</job>
+        <job>plugin_clover</job>
+        <job>plugin_cobertura</job>
+        <job>plugin_console</job>
+        <job>plugin_crowd2</job>
+        <job>plugin_cvs</job>
+        <job>plugin_dependency-viewer</job>
+        <job>plugin_deploy</job>
+        <job>plugin_dimensionsscm</job>
+        <job>plugin_disk-usage_eclipse</job>
+        <job>plugin_displayname</job>
+        <job>plugin_email-ext</job>
+        <job>plugin_git</job>
+        <job>plugin_jcaptcha</job>
+        <job>plugin_jfreechart</job>
+        <job>plugin_jna-native_eclipse</job>
+        <job>plugin_jumble</job>
+        <job>plugin_label-column-view</job>
+        <job>plugin_liverebel-deploy</job>
+        <job>plugin_maven-repository-server</job>
+        <job>plugin_mks-integrity</job>
+        <job>plugin_multiline-tabbar</job>
+        <job>plugin_surround-scm</job>
+        <job>plugin_ui-samples</job>
+        <job>plugin_upstream-downstream-view</job>
+        <job>plugin_vault</job>
+        <job>plugin_weblogic-deployer</job>
+        <job>plugin_windows-slaves</job>
+        <job>plugin_wrapper-script</job>
+ 	<job>hudson_core</job>
+ 	<job>hudson_core_eclipse</job>
       </include>     	      
     </group>
   </groups>
   <jobs>
     <!-- job for standard plugins -->
-    <job name="standard-plugin" template="build_standard_plugin.ftl">
+    <job name="standard-build" template="build_standard_plugin.ftl">
       <propertyset>
         <property name="history.build.days">-1</property>
         <property name="history.build.number">10</property>
         <property name="history.artifact.days">-1</property>
         <property name="history.artifact.number">-1</property>
         <property name="scm.trigger">*/5 * * * *</property>
-        <property name="scm.type">github</property>
-        <property name="scm.github.branch">master</property>
         <property name="jdk">oracle_jdk_6</property>
       </propertyset> 
     </job>
 
-    <job  name="blacklist" >
+    <job name="standard-plugin">
+      <inherit>
+        <job>standard-build</job>
+      </inherit>
+      <propertyset>
+        <property name="mailer.recipients">henrik@hlyh.dk</property>
+	<property name="mailer.notalways">false</property>
+	<property name="mailer.breakers">true</property>
+      </propertyset> 
+    </job>
+
+    <job name="github">
+      <propertyset>
+        <property name="scm.type">git</property>
+        <property name="scm.git.host">github.com</property>
+        <property name="scm.git.scheme">git</property>
+        <property name="scm.git.tool">Default</property>
+        <property name="scm.git.branch">master</property>
+      </propertyset> 
+    </job>
+    <job name="eclipse">
+      <propertyset>
+        <property name="scm.type">git</property>
+        <property name="scm.git.host">git.eclipse.org</property>
+        <property name="scm.git.scheme">git</property>
+        <property name="scm.git.tool">Default</property>
+        <property name="scm.git.branch">master</property>
+      </propertyset> 
+    </job>
+
+    <job  name="plugin_blacklist" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Blacklist</property>
-        <property name="scm.github.path">/hudson-plugins/blacklist-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/blacklist-plugin.git</property>
       </propertyset>
     </job>
 
-    <job  name="clover" >
+    <job  name="plugin_clover" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Clover</property>
-        <property name="scm.github.path">/hudson-plugins/clover-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/clover-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="cobertura" >
+    <job  name="plugin_cobertura" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Cobertura</property>
-        <property name="scm.github.path">/hudson-plugins/cobertura-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/cobertura-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="console" >
+    <job  name="plugin_console" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Console</property>
-        <property name="scm.github.path">/hudson-plugins/console-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/console-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="crowd2" >
+    <job  name="plugin_crowd2" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Crowd2</property>
-        <property name="scm.github.path">/hudson-plugins/crowd2-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/crowd2-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="cvs" >
+    <job  name="plugin_cvs" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: CVS</property>
-        <property name="scm.github.path">/hudson-plugins/cvs-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/cvs-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="dependency-viewer" >
+    <job  name="plugin_dependency-viewer" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Dependency Viewer</property>
-        <property name="scm.github.path">/hudson-plugins/dependency-viewer-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/dependency-viewer-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="deploy" >
+    <job  name="plugin_deploy" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Deploy</property>
-        <property name="scm.github.path">/hudson-plugins/deploy-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/deploy-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="dimensionsscm" >
+    <job  name="plugin_dimensionsscm" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Dimensions scm</property>
-        <property name="scm.github.path">/hudson-plugins/dimensionsscm-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/dimensionsscm-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="displayname" >
+    <job  name="plugin_displayname" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Display Name</property>
-        <property name="scm.github.path">/hudson-plugins/displayname-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/displayname-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="email-ext" >
+    <job  name="plugin_email-ext" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Extended Email</property>
-        <property name="scm.github.path">/hudson-plugins/email-ext-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/email-ext-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="git" >
+    <job  name="plugin_git" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Git</property>
-        <property name="scm.github.path">/hudson-plugins/git-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/git-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="jcaptcha" >
+    <job  name="plugin_jcaptcha" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: JCaptcha</property>
-        <property name="scm.github.path">/hudson-plugins/jcaptcha-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/jcaptcha-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="jfreechart" >
+    <job  name="plugin_jfreechart" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: JFreeChart</property>
-        <property name="scm.github.path">/hudson-plugins/jfreechart-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/jfreechart-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="jna-native" >
+    <job  name="plugin_jumble" >
       <inherit>
         <job>standard-plugin</job>
-      </inherit>
-      <propertyset>
-        <property name="displayname">Plugin: JNA Native Support</property>
-        <property name="scm.github.path">/hudson-plugins/jna-native-support-plugin.git</property>
-      </propertyset>
-    </job>
-    <job  name="jumble" >
-      <inherit>
-        <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Jumble</property>
-        <property name="scm.github.path">/hudson-plugins/JumbleHudsonPlugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/JumbleHudsonPlugin.git</property>
       </propertyset>
     </job>
-    <job  name="label-column-view" >
+    <job  name="plugin_label-column-view" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Label Column View</property>
-        <property name="scm.github.path">/hudson-plugins/label-column-view-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/label-column-view-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="liverebel-deploy" >
+    <job  name="plugin_liverebel-deploy" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Liverebel Deploy</property>
-        <property name="scm.github.path">/hudson-plugins/liverebel-deploy-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/liverebel-deploy-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="maven-repository-server" >
+    <job  name="plugin_maven-repository-server" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Maven Repository Server</property>
-        <property name="scm.github.path">/hudson-plugins/maven-repository-server-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/maven-repository-server-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="mks-integrity" >
+    <job  name="plugin_mks-integrity" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: MKS Integrity</property>
-        <property name="scm.github.path">/hudson-plugins/MKS-Integrity-Plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/MKS-Integrity-Plugin.git</property>
       </propertyset>
     </job>
-    <job  name="multiline-tabbar" >
+    <job  name="plugin_multiline-tabbar" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Multiline Tabbar</property>
-        <property name="scm.github.path">/hudson-plugins/multiline-tabbar-pluigin.git</property>
+        <property name="scm.git.path">/hudson-plugins/multiline-tabbar-pluigin.git</property>
       </propertyset>
     </job>
-    <job  name="ssh-slaves" >
+    <job  name="plugin_ssh-slaves" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: SSH Slaves</property>
-        <property name="scm.github.path">/hudson-plugins/ssh-slaves-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/ssh-slaves-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="surround-scm" >
+    <job  name="plugin_surround-scm" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Surround SCM</property>
-        <property name="scm.github.path">/hudson-plugins/Surround-SCM-Plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/Surround-SCM-Plugin.git</property>
       </propertyset>
     </job>
-    <job  name="ui-samples" >
+    <job  name="plugin_ui-samples" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: UI Samples</property>
-        <property name="scm.github.path">/hudson-plugins/ui-samples-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/ui-samples-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="upstream-downstream-view" >
+    <job  name="plugin_upstream-downstream-view" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Upstream/Downstream View</property>
-        <property name="scm.github.path">/hudson-plugins/upstream-downstream-view-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/upstream-downstream-view-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="vault" >
+    <job  name="plugin_vault" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Vault</property>
-        <property name="scm.github.path">/hudson-plugins/vault-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/vault-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="weblogic-deployer" >
+    <job  name="plugin_weblogic-deployer" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Weblogic Deployer</property>
-        <property name="scm.github.path">/hudson-plugins/weblogic-deployer-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/weblogic-deployer-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="windows-slaves" >
+    <job  name="plugin_windows-slaves" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Windows Slaves</property>
-        <property name="scm.github.path">/hudson-plugins/windows-slaves-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/windows-slaves-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="wrapper-script" >
+    <job  name="plugin_wrapper-script" >
       <inherit>
         <job>standard-plugin</job>
+        <job>github</job>
       </inherit>
       <propertyset>
         <property name="displayname">Plugin: Wrapper Script</property>
-        <property name="scm.github.path">/hudson-plugins/wrapper-script-plugin.git</property>
+        <property name="scm.git.path">/hudson-plugins/wrapper-script-plugin.git</property>
+      </propertyset>
+    </job>
+    <job  name="hudson_core" >
+      <inherit>
+        <job>standard-build</job>
+        <job>github</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Hudson: Core</property>
+        <property name="scm.git.path">/hudson/hudson.git</property>
+      </propertyset>
+    </job>
+    <job  name="hudson_core_eclipse" >
+      <inherit>
+        <job>standard-build</job>
+        <job>eclipse</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Eclipse: Core</property>
+        <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.core.git</property>
+      </propertyset>
+    </job>
+    <job  name="plugin_disk-usage_eclipse" >
+      <inherit>
+        <job>standard-build</job>
+        <job>github</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Eclipse: Disk Usage Plugin</property>
+        <property name="scm.git.path">/hudson-plugins/disk-usage-plugin.git</property>
+      </propertyset>
+    </job>
+    <job  name="plugin_jna-native_eclipse" >
+      <inherit>
+        <job>standard-plugin</job>
+        <job>github</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Eclipse: JNA Native Support</property>
+        <property name="scm.git.path">/hudson-plugins/jna-native-support-plugin.git</property>
       </propertyset>
     </job>
   </jobs>
