@@ -17,8 +17,9 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <jdk>$[jdk}</jdk>
   <triggers class="vector">
-      <#include "/fragments/scm-trigger.ftl">
+    <#include "/fragments/scm-trigger.ftl">
     <maven-dependency-trigger>
       <spec></spec>
     </maven-dependency-trigger>
