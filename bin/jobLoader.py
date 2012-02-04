@@ -45,7 +45,6 @@ if __name__ == "__main__":
   args = Arguments()
   args.setInput(java.io.File("../pipeline.xml"))
   args.setTemplateDirectory(java.io.File("../templates"))
-  args.setTemplateDirectory(java.io.File("../templates"))
   args.setOutputDirectory(java.io.File("../target"))
   args.setGroup(group)
 
