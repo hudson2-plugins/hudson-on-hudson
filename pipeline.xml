@@ -33,6 +33,7 @@
         <job>hudson-plugins_maven3</job>
         <job>hudson-plugins_mks-integrity</job>
         <job>hudson-plugins_multiline-tabbar</job>
+        <job>hudson-plugins_plot</job>
         <job>hudson-plugins_rest-client</job>
         <job>hudson-plugins_rest</job>
         <job>hudson-plugins_ssh-slaves</job>
@@ -368,6 +369,16 @@
       <propertyset>
         <property name="displayname">Plugin: Multiline Tabbar</property>
         <property name="scm.git.path">/hudson-plugins/multiline-tabbar-pluigin.git</property>
+      </propertyset>
+    </job>
+    <job  name="hudson-plugins_plot" >
+      <inherit>
+        <job>standard-build</job>
+        <job>github</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Plugin: Plot</property>
+        <property name="scm.git.path">/hudson-plugins/plot-plugin.git</property>
       </propertyset>
     </job>
     <job  name="hudson-plugins_rest-client" >
