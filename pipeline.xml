@@ -89,6 +89,8 @@
         <property name="mailer.recipients">henrik@hlyh.dk</property>
 	<property name="mailer.notalways">false</property>
 	<property name="mailer.breakers">true</property>
+        <property name="findbugs">true</property>
+        <property name="surefire">true</property>
       </propertyset> 
     </job>
     <job name="github">
@@ -118,6 +120,11 @@
       <propertyset>
         <property name="displayname">Plugin: Blacklist</property>
         <property name="scm.git.path">/hudson-plugins/blacklist-plugin.git</property>
+        <property name="links">wiki,github</property>
+        <property name="link.wiki.text">Wiki</property>
+        <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Blacklist+Plugin</property>
+        <property name="link.github.text">Github</property>
+        <property name="link.github.url">https://github.com/hudson-plugins/blacklist-plugin</property>        
       </propertyset>
     </job>
 
