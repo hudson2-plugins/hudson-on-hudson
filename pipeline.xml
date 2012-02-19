@@ -164,7 +164,6 @@
       <propertyset>
         <property name="displayname">Plugin: Blacklist</property>
         <property name="scm.git.path">/hudson-plugins/blacklist-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Blacklist+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -180,7 +179,6 @@
       <propertyset>
         <property name="displayname">Plugin: Clover</property>
         <property name="scm.git.path">/hudson-plugins/clover-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -195,7 +193,6 @@
       <propertyset>
         <property name="displayname">Plugin: Cobertura</property>
         <property name="scm.git.path">/hudson-plugins/cobertura-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Cobertura+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -210,7 +207,6 @@
       <propertyset>
         <property name="displayname">Plugin: Console</property>
         <property name="scm.git.path">/hudson-plugins/console-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Console+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -226,7 +222,6 @@
       <propertyset>
         <property name="displayname">Plugin: Crowd2</property>
         <property name="scm.git.path">/hudson-plugins/crowd2-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Crowd+2+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -242,7 +237,6 @@
       <propertyset>
         <property name="displayname">Plugin: CVS</property>
         <property name="scm.git.path">/hudson-plugins/cvs-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/CVS+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -258,7 +252,6 @@
       <propertyset>
         <property name="displayname">Plugin: Dependency Viewer</property>
         <property name="scm.git.path">/hudson-plugins/dependency-viewer-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Dependency+Viewew+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -274,7 +267,6 @@
       <propertyset>
         <property name="displayname">Plugin: Deploy</property>
         <property name="scm.git.path">/hudson-plugins/deploy-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Deploy+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -290,7 +282,6 @@
       <propertyset>
         <property name="displayname">Plugin: Dimensions scm</property>
         <property name="scm.git.path">/hudson-plugins/dimensionsscm-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Dimensions+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -305,7 +296,6 @@
       <propertyset>
         <property name="displayname">Plugin: Disk Usage Plugin</property>
         <property name="scm.git.path">/hudson-plugins/disk-usage-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Disk+Usage+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -322,7 +312,6 @@
       <propertyset>
         <property name="displayname">Plugin: Display Name</property>
         <property name="scm.git.path">/hudson-plugins/displayname-plugin.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Main page</property>
         <property name="link.source.url">https://github.com/hudson-plugins/displayname-plugin</property>
         <property name="surefire">false</property>
@@ -336,7 +325,6 @@
       <propertyset>
         <property name="displayname">Plugin: Extended Email</property>
         <property name="scm.git.path">/hudson-plugins/email-ext-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Email-ext+plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -352,7 +340,6 @@
       <propertyset>
         <property name="displayname">Plugin: eXtreme Feedback Panel</property>
         <property name="scm.git.path">/hudson-plugins/extreme-feedback-panel-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/eXtreme+Feedback+Panel+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -368,7 +355,6 @@
       <propertyset>
         <property name="displayname">Plugin: Git</property>
         <property name="scm.git.path">/hudson-plugins/git-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Git+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -384,7 +370,6 @@
       <propertyset>
         <property name="displayname">Plugin: GWT Support</property>
         <property name="scm.git.path">/hudson-plugins/gwt-support.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/gwt-support</property>        
       </propertyset>
@@ -397,7 +382,6 @@
       <propertyset>
         <property name="displayname">Plugin: Jaxb Support</property>
         <property name="scm.git.path">/hudson-plugins/jaxb-support.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/jaxb-support</property>
         <property name="surefire">false</property>        
@@ -411,7 +395,6 @@
       <propertyset>
         <property name="displayname">Plugin: JCaptcha</property>
         <property name="scm.git.path">/hudson-plugins/jcaptcha-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/JCaptcha+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -426,7 +409,6 @@
       <propertyset>
         <property name="displayname">Plugin: JFreeChart</property>
         <property name="scm.git.path">/hudson-plugins/jfreechart-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/JFreeChart+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -441,7 +423,6 @@
       <propertyset>
         <property name="displayname">Plugin: JNA Native Support</property>
         <property name="scm.git.path">/hudson-plugins/jna-native-support-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/JNA+Native+Support+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -457,7 +438,6 @@
       <propertyset>
         <property name="displayname">Plugin: Jumble</property>
         <property name="scm.git.path">/hudson-plugins/JumbleHudsonPlugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">https://github.com/nicolasrusconi/JumbleHudsonPlugin</property>
         <property name="link.source.text">Source Code</property>
@@ -473,7 +453,6 @@
       <propertyset>
         <property name="displayname">Plugin: Label Column View</property>
         <property name="scm.git.path">/hudson-plugins/label-column-view-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Label+Column+View+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -489,7 +468,6 @@
       <propertyset>
         <property name="displayname">Plugin: Legacy Maven</property>
         <property name="scm.git.path">/hudson-plugins/legacy-maven-support.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/legacy-maven-support</property>
         <property name="mailer.recipients">henrik@hlyh.dk winston.prakash@gmail.com</property>         
@@ -503,7 +481,6 @@
       <propertyset>
         <property name="displayname">Plugin: Liverebel Deploy</property>
         <property name="scm.git.path">/hudson-plugins/liverebel-deploy-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/LiveRebel+Deploy+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -519,7 +496,6 @@
       <propertyset>
         <property name="displayname">Plugin: Maven Repository Server</property>
         <property name="scm.git.path">/hudson-plugins/maven-repository-server-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">https://github.com/henriklynggaard/hudson-maven-repository-server-plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -535,7 +511,6 @@
       <propertyset>
         <property name="displayname">Plugin: Maven3 Support</property>
         <property name="scm.git.path">/hudson-plugins/maven3-support.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/maven3-support</property>        
       </propertyset>
@@ -548,7 +523,6 @@
       <propertyset>
         <property name="displayname">Plugin: MKS Integrity</property>
         <property name="scm.git.path">/hudson-plugins/MKS-Integrity-Plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/PTC+Integrity+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -564,7 +538,6 @@
       <propertyset>
         <property name="displayname">Plugin: Multiline Tabbar</property>
         <property name="scm.git.path">/hudson-plugins/multiline-tabbar-pluigin.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/multiline-tabbar-pluigin</property>                
       </propertyset>
@@ -577,7 +550,6 @@
       <propertyset>
         <property name="displayname">Plugin: Plot</property>
         <property name="scm.git.path">/hudson-plugins/plot-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Plot+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -592,7 +564,6 @@
       <propertyset>
         <property name="displayname">Plugin: REST Client</property>
         <property name="scm.git.path">/hudson-plugins/rest-client.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/rest-client</property>        
       </propertyset>
@@ -605,7 +576,6 @@
       <propertyset>
         <property name="displayname">Plugin: REST Support</property>
         <property name="scm.git.path">/hudson-plugins/rest-support.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/rest-support</property>        
       </propertyset>
@@ -618,7 +588,6 @@
       <propertyset>
         <property name="displayname">Plugin: SSH Slaves</property>
         <property name="scm.git.path">/hudson-plugins/ssh-slaves-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/SSH+Slaves+plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -634,12 +603,13 @@
       <propertyset>
         <property name="displayname">Plugin: Subversion</property>
         <property name="scm.git.path">/hudson-plugins/subversion-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Subversion+Plugin</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/subversion-plugin</property>                        
-        <property name="mailer.recipients">henrik@hlyh.dk anton_kozak@epam.com nevil.nick@gmail.com</property>                
+        <property name="mailer.recipients">henrik@hlyh.dk anton_kozak@epam.com nevil.nick@gmail.com</property>
+        <property name="maven_property.skip.name">maven.test.skip</property>
+        <property name="maven_property.skip.value">true</property>
       </propertyset>
     </job>
     <job  name="hudson-plugins_surround-scm" >
@@ -650,7 +620,6 @@
       <propertyset>
         <property name="displayname">Plugin: Surround SCM</property>
         <property name="scm.git.path">/hudson-plugins/Surround-SCM-Plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Surround+SCM+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -666,7 +635,6 @@
       <propertyset>
         <property name="displayname">Plugin: UI Samples</property>
         <property name="scm.git.path">/hudson-plugins/ui-samples-plugin.git</property>
-        <property name="links">source</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/ui-samples-plugin</property>                                        
       </propertyset>
@@ -679,7 +647,6 @@
       <propertyset>
         <property name="displayname">Plugin: Upstream/Downstream View</property>
         <property name="scm.git.path">/hudson-plugins/upstream-downstream-view-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Upstream+Downstream+View</property>
         <property name="link.source.text">Source Code</property>
@@ -695,7 +662,6 @@
       <propertyset>
         <property name="displayname">Plugin: Vault</property>
         <property name="scm.git.path">/hudson-plugins/vault-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Vault+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -711,7 +677,6 @@
       <propertyset>
         <property name="displayname">Plugin: Weblogic Deployer</property>
         <property name="scm.git.path">/hudson-plugins/weblogic-deployer-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Weblogic+Deployer+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -726,7 +691,6 @@
       <propertyset>
         <property name="displayname">Plugin: Windows Slaves</property>
         <property name="scm.git.path">/hudson-plugins/windows-slaves-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Windows+Slaves+Plugin</property>
         <property name="link.source.text">Source Code</property>
@@ -742,7 +706,6 @@
       <propertyset>
         <property name="displayname">Plugin: Wrapper Script</property>
         <property name="scm.git.path">/hudson-plugins/wrapper-script-plugin.git</property>
-        <property name="links">wiki,source</property>
         <property name="link.wiki.text">Wiki</property>
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Wrapper+Script+Plugin</property>
         <property name="link.source.text">Source Code</property>

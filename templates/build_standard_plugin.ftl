@@ -19,10 +19,10 @@
     <dk.hlyh.hudson.plugins.displayname.DisplaynameProperty>
       <displayname>${displayname}</displayname>
     </dk.hlyh.hudson.plugins.displayname.DisplaynameProperty>
-    <#if links?? >
+    <#if link?? >
     <hudson.plugins.sidebar__link.ProjectLinks>
       <links>
-        <#list links?split(",") as item>
+        <#list link?keys as item>
           <hudson.plugins.sidebar__link.LinkAction>
             <url>${link[item].url}</url>
             <text>${link[item].text}</text>
@@ -63,7 +63,13 @@
         <privateTmpdir>false</privateTmpdir>
         <pomFile>pom.xml</pomFile>
         <properties>
-          <entries/>
+          <entries>
+            <#if maven_property??>
+              <#list maven_property?keys as item>
+                <entry name="${maven_property[item].name}" value="${maven_property[item].value}"/>
+              </#list>            
+            </#if>
+          </entries>
         </properties>
         <errors>false</errors>
         <verbosity>NORMAL</verbosity>
