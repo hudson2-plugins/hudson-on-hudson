@@ -19,19 +19,7 @@
     <dk.hlyh.hudson.plugins.displayname.DisplaynameProperty>
       <displayname>${displayname}</displayname>
     </dk.hlyh.hudson.plugins.displayname.DisplaynameProperty>
-    <#if link?? >
-    <hudson.plugins.sidebar__link.ProjectLinks>
-      <links>
-        <#list link?keys as item>
-          <hudson.plugins.sidebar__link.LinkAction>
-            <url>${link[item].url}</url>
-            <text>${link[item].text}</text>
-            <icon>document.gif</icon>
-        </hudson.plugins.sidebar__link.LinkAction>
-        </#list>
-      </links>
-    </hudson.plugins.sidebar__link.ProjectLinks>    
-    </#if>    
+    <#include "/fragments/project_links.ftl">
   </properties>
   <#if scm?? && scm.type?? && scm.type == "git" >
       <#include "/fragments/scm-git.ftl">
@@ -55,95 +43,60 @@
   <concurrentBuild>false</concurrentBuild>
   <cleanWorkspaceRequired>false</cleanWorkspaceRequired>
   <builders>
-    <maven-builder>
-      <config>
-        <installationId>(Bundled)</installationId>
-        <goals>clean install</goals>
-        <privateRepository>false</privateRepository>
-        <privateTmpdir>false</privateTmpdir>
-        <pomFile>pom.xml</pomFile>
-        <properties>
-          <entries>
-            <#if maven_property??>
-              <#list maven_property?keys as item>
-                <entry name="${maven_property[item].name}" value="${maven_property[item].value}"/>
-              </#list>            
-            </#if>
-          </entries>
-        </properties>
-        <errors>false</errors>
-        <verbosity>NORMAL</verbosity>
-        <offline>false</offline>
-        <snapshotUpdateMode>NORMAL</snapshotUpdateMode>
-        <recursive>true</recursive>
-        <checksumMode>NORMAL</checksumMode>
-        <failMode>NORMAL</failMode>
-        <makeMode>NONE</makeMode>
-        <settingsId>NONE</settingsId>
-        <globalSettingsId>NONE</globalSettingsId>
-        <toolChainsId>NONE</toolChainsId>
-      </config>
-    </maven-builder>
+ 
+     <#if sonar?? >
+          <#assign goals="clean install deploy" />
+     <#else>
+          <#assign goals="clean install" />
+     </#if>
+     <#include "/fragments/maven-builder.ftl">    
+    
+    <!-- sonar if available -->
+    <#if sonar??>     
+      <!-- run the sonar -->
+      <#assign goals="sonar:sonar" />
+      <#include "/fragments/maven-builder.ftl">
+    </#if>       
+    
+    <!-- run findbugs if no sonar -->
     <#if findbugs == "true">
-      <maven-builder>
-        <config>
-          <installationId>(Bundled)</installationId>
-          <goals>org.codehaus.mojo:findbugs-maven-plugin:2.4.0:findbugs</goals>
-          <privateRepository>false</privateRepository>
-          <privateTmpdir>false</privateTmpdir>
-          <pomFile>pom.xml</pomFile>
-          <properties>
-            <entries>
-              <entry name="failOnError" value="false"/>
-            </entries>
-          </properties>
-          <errors>false</errors>
-          <verbosity>NORMAL</verbosity>
-          <offline>false</offline>
-          <snapshotUpdateMode>NORMAL</snapshotUpdateMode>
-          <recursive>true</recursive>
-          <checksumMode>NORMAL</checksumMode>
-          <failMode>NORMAL</failMode>
-          <makeMode>NONE</makeMode>
-          <settingsId>NONE</settingsId>
-          <globalSettingsId>NONE</globalSettingsId>
-          <toolChainsId>NONE</toolChainsId>
-        </config>
-      </maven-builder>  
+      <#assign goals="org.codehaus.mojo:findbugs-maven-plugin:2.4.0:findbugs" />
+      <#include "/fragments/maven-builder.ftl">
     </#if>
+    
   </builders>
   <publishers>
     <#if findbugs == "true">
-      <hudson.plugins.findbugs.FindBugsPublisher>
-        <healthy></healthy>
-        <unHealthy></unHealthy>
-        <thresholdLimit>low</thresholdLimit>
-        <pluginName>[FINDBUGS] </pluginName>
-        <defaultEncoding></defaultEncoding>
-        <canRunOnFailed>false</canRunOnFailed>
-        <useDeltaValues>false</useDeltaValues>
-        <thresholds>
-          <unstableTotalAll></unstableTotalAll>
-          <unstableTotalHigh></unstableTotalHigh>
-          <unstableTotalNormal></unstableTotalNormal>
-          <unstableTotalLow></unstableTotalLow>
-          <failedTotalAll></failedTotalAll>
-          <failedTotalHigh></failedTotalHigh>
-          <failedTotalNormal></failedTotalNormal>
-          <failedTotalLow></failedTotalLow>
-        </thresholds>
-        <shouldDetectModules>false</shouldDetectModules>
-        <dontComputeNew>true</dontComputeNew>
-        <pattern>**/findbugsXml.xml</pattern>
-        <isRankActivated>false</isRankActivated>
-      </hudson.plugins.findbugs.FindBugsPublisher>    
+    <hudson.plugins.findbugs.FindBugsPublisher>
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[FINDBUGS]</pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>false</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds>
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <pattern>**/findbugsXml.xml</pattern>
+      <isRankActivated>false</isRankActivated>
+    </hudson.plugins.findbugs.FindBugsPublisher>    
     </#if>
     <#if surefire == "true">
-      <hudson.tasks.junit.JUnitResultArchiver>
-        <testResults>**/target/surefire-reports/*.xml</testResults>
-        <keepLongStdio>true</keepLongStdio>
-        <testDataPublishers/>
-      </hudson.tasks.junit.JUnitResultArchiver>    
+    <hudson.tasks.junit.JUnitResultArchiver>
+      <testResults>**/target/surefire-reports/*.xml</testResults>
+      <keepLongStdio>true</keepLongStdio>
+      <testDataPublishers/>
+    </hudson.tasks.junit.JUnitResultArchiver>    
     </#if>
     <maven-artifact-fingerprinter/>
     <maven-artifact-archiver>
@@ -154,7 +107,7 @@
       <notifyIfUnstable>false</notifyIfUnstable>
     </maven-dependency-notifier>
     <hudson.plugins.claim.ClaimPublisher/>
-<#if mailer??>
+<#if mailer.active?? && mailer.active == "true">
     <hudson.tasks.Mailer>
       <recipients>${mailer.recipients}</recipients>
       <dontNotifyEveryUnstableBuild>${mailer.notalways}</dontNotifyEveryUnstableBuild>

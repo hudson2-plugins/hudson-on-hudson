@@ -46,7 +46,7 @@ if __name__ == "__main__":
   args.setInput(java.io.File("../pipeline.xml"))
   args.setTemplateDirectory(java.io.File("../templates"))
   args.setOutputDirectory(java.io.File("../target"))
-  args.setGroup(group)
+  args.setEnvironment(group)
 
   jobsloaded = Program.run(args)
   login(url,user,password)
