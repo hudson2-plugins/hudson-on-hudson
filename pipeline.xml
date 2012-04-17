@@ -189,7 +189,7 @@
       <propertyset>
         <property name="scm.type">git</property>
         <property name="scm.git.host">git.eclipse.org</property>
-        <property name="scm.git.scheme">http</property>
+        <property name="scm.git.scheme">https</property>
         <property name="scm.git.tool">Default</property>
         <property name="scm.git.branch">master</property>
       </propertyset> 
