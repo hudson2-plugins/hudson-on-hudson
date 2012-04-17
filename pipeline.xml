@@ -9,7 +9,7 @@
             <property name="jdk">jdk6.0._31</property>
             <property name="findbugs">false</property>
             <property name="settings_file">a99b3214-853c-4f5e-a1e1-298b06e08696</property>
-<!--            <property name="scm.trigger">*/15 * * * *</property> -->            
+            <property name="scm.trigger">*/15 * * * *</property> 
         </propertyset>     
     </group>
     <group name="core-group" >
