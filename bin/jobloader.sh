@@ -1,4 +1,4 @@
-
+BASE_DIR=..
 OUTPUT_DIR=$BASE_DIR/target
 TEMPLATES=$BASE_DIR/templates
 CLASSPATH=$BASE_DIR/lib/hudson-cli.jar:$BASE_DIR/lib/jobcreator.jar:$BASE_DIR/lib/jython.jar

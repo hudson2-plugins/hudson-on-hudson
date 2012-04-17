@@ -4,48 +4,65 @@
                xsi:schemaLocation='hudsonci.jobcreator.v1 file:/mnt/nas/data/source-code/hudson-jobcreator/target/schemas/jobcreator-v1.xsd'>
   <name>hudson-on-hudson</name>
   <groups>
+    <group name="basic" pattern="${job}">
+        <propertyset>
+            <property name="jdk">jdk6.0._31</property>
+            <property name="findbugs">false</property>
+            <property name="settings_file">a99b3214-853c-4f5e-a1e1-298b06e08696</property>
+<!--            <property name="scm.trigger">*/15 * * * *</property> -->            
+        </propertyset>     
+    </group>
+    <group name="core-group" >
+        <inherit>
+            <group>basic</group>
+        </inherit>
+              <include>     
+        <job>birt-chart-plugin_core</job>
+        <job>core_core</job>    
+        <job>cvs-plugin_core</job>        
+        <job>git-plugin_core</job>        
+        <job>gwt-plugin_core</job>        
+        <job>hpi-plugin_core</job>
+        <job>jaxb-plugin_core</job>        
+        <job>legacy-maven-plugin_core</job>
+        <job>maven3-plugin_core</job>
+        <job>packaging_core</job>                         
+        <job>rest-client-plugin_core</job>
+        <job>rest-plugin_core</job>     
+        <job>ssh-slaves-plugin_core</job>
+        <job>stapler_core</job>        
+        <job>subversion-plugin_core</job>
+        <job>test-harness_core</job>
+        <job>test-ui_core</job>
+        <job>updatecenter_core</job>                              
+              </include> 
+    </group>
     <group name="hudson-jobs" pattern="${job}">
       <include>                    
-        <job>birt-chart-plugin</job>
         <job>blacklist-plugin</job>
         <job>clover-plugin</job>
         <job>cobertura-plugin</job>
-        <job>console-plugin</job>
-        <job>core</job>        
+        <job>console-plugin</job>    
         <job>crowd2-plugin</job>
-        <job>cvs-plugin</job>        
         <job>dependency-viewer-plugin</job>
         <job>deploy-plugin</job>
         <job>dimensionsscm-plugin</job>
         <job>disk-usage-plugin</job>
         <job>displayname-plugin</job>
         <job>email-ext-plugin</job>
-        <job>extreme-feedback-panel-plugin</job>
-        <job>hpi-plugin</job>
-        <job>jaxb-plugin</job>                
+        <job>extreme-feedback-panel-plugin</job>                
         <job>jcaptcha-plugin</job>
         <job>jfreechart-plugin</job>
         <job>jna-native-plugin</job>
         <job>jumble-plugin</job>
         <job>label-column-view-plugin</job>
-        <job>legacy-maven-plugin</job>
         <job>liverebel-deploy-plugin</job>
         <job>maven-repository-server-plugin</job>
-        <job>maven3-plugin</job>
         <job>mks-integrity-plugin</job>
         <job>multiline-tabbar-plugin</job>
-        <job>packaging</job>        
         <job>plot-plugin</job>
-        <job>rest-client-plugin</job>
-        <job>rest-plugin</job> 
-        <job>ssh-slaves-plugin</job>
-        <job>stapler</job>        
-        <job>subversion-plugin</job>
-        <job>surround-scm-plugin</job>
-        <job>test-harness</job>
-        <job>test-ui</job>        
+        <job>surround-scm-plugin</job>  
         <job>ui-samples-plugin</job>
-        <job>updatecenter</job>        
         <job>upstream-downstream-view-plugin</job>
         <job>vault-plugin</job>
         <job>weblogic-deployer-plugin</job>
@@ -104,8 +121,7 @@
         <job>pview-plugin</job>
         <job>ldapemail-plugin</job>
         <job>active-directory-plugin</job>
-        <job>cas1-plugin</job>        
-                  
+        <job>cas1-plugin</job>                          
         <job>chucknorris-plugin</job>
         <job>collapsing-console-sections-plugin</job>
         <job>cron_column-plugin</job>
@@ -131,7 +147,7 @@
         </inherit>
         <propertyset>
             <property name="settings_file">fa2eafe2-efb6-4692-a571-f193ee57d59d</property>
-            <property name="scm.trigger">30 * * * *</property>
+
         </propertyset>
     </group>
     <group name="jenkins-at-henrik">
@@ -212,7 +228,7 @@
         <property name="scm.git.path">jenkinsci/batch-task-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="birt-chart-plugin" >
+    <job  name="birt-chart-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -346,7 +362,7 @@
         <property name="surefire">false</property>                
       </propertyset>
     </job>         
-    <job  name="core" >
+    <job  name="core_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -373,7 +389,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="cvs-plugin" >
+    <job  name="cvs-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -554,7 +570,7 @@
         <property name="scm.git.path">jenkinsci/gerrit-trigger-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="git-plugin" >
+    <job  name="git-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -574,7 +590,7 @@
         <property name="scm.git.path">jenkinsci/groovy-postbuild-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="gwt-plugin" >
+    <job  name="gwt-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -584,7 +600,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.support.gwt.git</property>
       </propertyset>
     </job>    
-    <job  name="hpi-plugin" >
+    <job  name="hpi-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -595,7 +611,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="jaxb-plugin" >
+    <job  name="jaxb-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -708,7 +724,7 @@
         <property name="surefire">false</property>        
       </propertyset>
     </job>
-    <job  name="legacy-maven-plugin" >
+    <job  name="legacy-maven-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -732,7 +748,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/liverebel-deploy-plugin</property>               
       </propertyset>
     </job>
-    <job  name="maven3-plugin" >
+    <job  name="maven3-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -794,7 +810,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/multiline-tabbar-pluigin</property>                
       </propertyset>
     </job>
-    <job  name="packaging" >
+    <job  name="packaging_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -878,7 +894,7 @@
         <property name="scm.git.path">jenkinsci/rebuild-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="rest-plugin" >
+    <job  name="rest-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -888,7 +904,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.plugins.rest.git</property>
       </propertyset>
     </job>
-    <job  name="rest-client-plugin" >
+    <job  name="rest-client-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -940,7 +956,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="ssh-slaves-plugin" >
+    <job  name="ssh-slaves-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -950,7 +966,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.plugins.ssh-slaves.git</property>
       </propertyset>
     </job>
-    <job  name="stapler" >
+    <job  name="stapler_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -960,7 +976,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.stapler.git</property>
       </propertyset>
     </job>        
-    <job  name="subversion-plugin" >
+    <job  name="subversion-plugin_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -1005,7 +1021,7 @@
         <property name="scm.git.path">jenkinsci/testng-plugin-plugin.git</property>
       </propertyset>
     </job>     
-    <job  name="test-harness" >
+    <job  name="test-harness_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -1015,7 +1031,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.test.harness.git</property>
       </propertyset>
     </job>
-    <job  name="test-ui" >
+    <job  name="test-ui_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
@@ -1058,7 +1074,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/ui-samples-plugin</property>                                        
       </propertyset>
     </job>
-    <job  name="updatecenter" >
+    <job  name="updatecenter_core" >
       <inherit>
         <job>standard-build</job>
         <job>eclipse-git</job>
