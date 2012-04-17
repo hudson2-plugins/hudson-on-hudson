@@ -2,7 +2,7 @@
       <config>
         <installationId>(Bundled)</installationId>
         <goals>${goals}</goals>
-        <privateRepository>true</privateRepository>
+        <privateRepository>false</privateRepository>
         <privateTmpdir>false</privateTmpdir>
         <pomFile>pom.xml</pomFile>
         <properties>
