@@ -16,7 +16,7 @@
         <inherit>
             <group>basic</group>
         </inherit>
-              <include>     
+        <include>     
         <job>birt-chart-plugin_core</job>
         <job>core_core</job>    
         <job>cvs-plugin_core</job>        
@@ -35,39 +35,46 @@
         <job>test-harness_core</job>
         <job>test-ui_core</job>
         <job>updatecenter_core</job>                              
-              </include> 
-    </group>
-    <group name="hudson-jobs" pattern="${job}">
+        </include> 
+    </group>  
+    <group name="hudson-repo-group" pattern="${job}">
+        <inherit>
+            <group>basic</group>
+        </inherit>    
       <include>                    
-        <job>blacklist-plugin</job>
-        <job>clover-plugin</job>
-        <job>cobertura-plugin</job>
-        <job>console-plugin</job>    
-        <job>crowd2-plugin</job>
-        <job>dependency-viewer-plugin</job>
-        <job>deploy-plugin</job>
-        <job>dimensionsscm-plugin</job>
-        <job>disk-usage-plugin</job>
-        <job>displayname-plugin</job>
-        <job>email-ext-plugin</job>
-        <job>extreme-feedback-panel-plugin</job>                
-        <job>jcaptcha-plugin</job>
-        <job>jfreechart-plugin</job>
-        <job>jna-native-plugin</job>
-        <job>jumble-plugin</job>
-        <job>label-column-view-plugin</job>
-        <job>liverebel-deploy-plugin</job>
-        <job>maven-repository-server-plugin</job>
-        <job>mks-integrity-plugin</job>
-        <job>multiline-tabbar-plugin</job>
-        <job>plot-plugin</job>
-        <job>surround-scm-plugin</job>  
-        <job>ui-samples-plugin</job>
-        <job>upstream-downstream-view-plugin</job>
-        <job>vault-plugin</job>
-        <job>weblogic-deployer-plugin</job>
-        <job>windows-slaves-plugin</job>
-        <job>wrapper-script-plugin</job>
+        <job>blacklist-plugin_hr</job>
+        <job>bugzilla-plugin_hr</job>
+        <job>clover-plugin_hr</job>
+        <job>cobertura-plugin_hr</job>
+        <job>collabnet-plugin_hr</job>
+        <job>console-plugin_hr</job>    
+        <job>crowd2-plugin_hr</job>
+        <job>dependency-viewer-plugin_hr</job>
+        <job>deploy-plugin_hr</job>
+        <job>dimensionsscm-plugin_hr</job>
+        <job>disk-usage-plugin_hr</job>
+        <job>displayname-plugin_hr</job>
+        <job>email-ext-plugin_hr</job>
+        <job>extreme-feedback-panel-plugin_hr</job>                
+        <job>groovy-support-plugin_hr</job>
+        <job>jcaptcha-plugin_hr</job>
+        <job>jfreechart-plugin_hr</job>
+        <job>jna-native-plugin_hr</job>
+        <job>jumble-plugin_hr</job>
+        <job>label-column-view-plugin_hr</job>
+        <job>liverebel-deploy-plugin_hr</job>
+        <job>maven-repository-server-plugin_hr</job>
+        <job>mks-integrity-plugin_hr</job>
+        <job>multiline-tabbar-plugin_hr</job>
+        <job>plot-plugin_hr</job>
+        <job>sauce-ondemand-plugin_hr</job>        
+        <job>surround-scm-plugin_hr</job>  
+        <job>ui-samples-plugin_hr</job>
+        <job>upstream-downstream-view-plugin_hr</job>
+        <job>vault-plugin_hr</job>
+        <job>weblogic-deployer-plugin_hr</job>
+        <job>windows-slaves-plugin_hr</job>
+        <job>wrapper-script-plugin_hr</job>
       </include>       
     </group>    
     <group name="jenkins-jobs" pattern="${job}">
@@ -140,7 +147,7 @@
             <property name="maven_property.deploy.value">snapshots::default::http://server.home/nexus/content/repositories/snapshots/</property>             
         </propertyset>                 
     </group>  
-    <group name="hudson-at-henrik">
+<!--    <group name="hudson-at-henrik">
         <inherit>
             <group>hudson-jobs</group>
             <group>at-henrik</group> 
@@ -159,7 +166,7 @@
             <property name="settings_file">383f005b-8e22-4513-9e59-502ff3e152b8</property>
             <property name="scm.trigger">0 * * * *</property>            
         </propertyset>
-    </group>
+    </group> -->
     
   </groups>
   <jobs>
@@ -239,7 +246,7 @@
         <property name="maven_profiles">local-repo</property>        
       </propertyset>
     </job>    
-    <job  name="blacklist-plugin" >
+    <job  name="blacklist-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -254,6 +261,16 @@
         <property name="maven_profiles">local-repo</property>                
       </propertyset>
     </job>
+    <job  name="bugzilla-plugin_hr" >
+      <inherit>
+        <job>standard-build</job>
+        <job>github</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Bugzilla Plugin</property>
+        <property name="scm.git.path">/hudson-plugins/bugzilla-plugin.git</property>
+      </propertyset>
+    </job>    
     <job  name="build-publisher-plugin" >
       <inherit>
         <job>standard-build</job>
@@ -295,7 +312,7 @@
         <property name="scm.git.path">jenkinsci/claim-plugin.git</property>
       </propertyset>
     </job>          
-    <job  name="clover-plugin" >
+    <job  name="clover-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -309,7 +326,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/clover-plugin</property>           
       </propertyset>
     </job>
-    <job  name="cobertura-plugin" >
+    <job  name="cobertura-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -323,7 +340,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/cobertura-plugin</property>                   
       </propertyset>
     </job>
-    <job  name="console-plugin" >
+    <job  name="console-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -373,8 +390,21 @@
         <property name="maven_profiles">local-repo,!pmd</property>
       </propertyset>
     </job>
-      
-    <job  name="crowd2-plugin" >
+   <job  name="collabnet-plugin_hr" >
+      <inherit>
+        <job>standard-build</job>
+        <job>github</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">CollabNet Plugin</property>
+        <property name="scm.git.path">/hudson-plugins/collabnet-plugin.git</property>
+<!--        <property name="link.wiki.text">Wiki</property>
+        <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin</property>
+        <property name="link.source.text">Source Code</property>
+        <property name="link.source.url">https://github.com/hudson-plugins/clover-plugin</property>            -->
+      </propertyset>
+    </job>          
+    <job  name="crowd2-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -412,7 +442,7 @@
       </propertyset>
     </job>
     
-    <job  name="dependency-viewer-plugin" >
+    <job  name="dependency-viewer-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -427,7 +457,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="deploy-plugin" >
+    <job  name="deploy-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -455,7 +485,7 @@
         <property name="scm.git.path">jenkinsci/description-setter-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="dimensionsscm-plugin" >
+    <job  name="dimensionsscm-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -469,7 +499,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/dimensionsscm-plugin</property>                                        
       </propertyset>
     </job>
-    <job  name="disk-usage-plugin" >
+    <job  name="disk-usage-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -485,7 +515,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="displayname-plugin" >
+    <job  name="displayname-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -510,7 +540,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="email-ext-plugin" >
+    <job  name="email-ext-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -525,7 +555,7 @@
         <property name="mailer.recipients">henrik@hlyh.dk winston.prakash@gmail.com</property>        
       </propertyset>
     </job>
-    <job  name="extreme-feedback-panel-plugin" >
+    <job  name="extreme-feedback-panel-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -590,6 +620,20 @@
         <property name="scm.git.path">jenkinsci/groovy-postbuild-plugin.git</property>
       </propertyset>
     </job>
+    <job  name="groovy-support-plugin_hr" >
+      <inherit>
+        <job>standard-build</job>
+        <job>github</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Groovy Support</property>
+        <property name="scm.git.path">/hudson-plugins/groovy-support-plugin.git</property>
+<!--        <property name="link.wiki.text">Wiki</property>
+        <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin</property>
+        <property name="link.source.text">Source Code</property>
+        <property name="link.source.url">https://github.com/hudson-plugins/clover-plugin</property>            -->
+      </propertyset>
+    </job>    
     <job  name="gwt-plugin_core" >
       <inherit>
         <job>standard-build</job>
@@ -621,7 +665,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.support.jaxb.git</property>
       </propertyset>
     </job>    
-    <job  name="jcaptcha-plugin" >
+    <job  name="jcaptcha-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -635,7 +679,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/jcaptcha-plugin</property>                
       </propertyset>
     </job>
-    <job  name="jfreechart-plugin" >
+    <job  name="jfreechart-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -649,7 +693,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/jfreechart-plugin</property>                        
       </propertyset>
     </job>
-    <job  name="jna-native-plugin" >
+    <job  name="jna-native-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -694,7 +738,7 @@
         <property name="scm.git.path">jenkinsci/jobrevision-plugin.git</property>
       </propertyset>
     </job>        
-    <job  name="jumble-plugin" >
+    <job  name="jumble-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -709,7 +753,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="label-column-view-plugin" >
+    <job  name="label-column-view-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -734,7 +778,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.plugins.legacy-maven.git</property>
       </propertyset>
     </job>
-    <job  name="liverebel-deploy-plugin" >
+    <job  name="liverebel-deploy-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -768,7 +812,7 @@
         <property name="scm.git.path">jenkinsci/maven-deployment-linker-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="maven-repository-server-plugin" >
+    <job  name="maven-repository-server-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -783,7 +827,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="mks-integrity-plugin" >
+    <job  name="mks-integrity-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -798,7 +842,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="multiline-tabbar-plugin" >
+    <job  name="multiline-tabbar-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -840,7 +884,7 @@
         <property name="scm.git.path">jenkinsci/play-plugin.git</property>
       </propertyset>
     </job>
-    <job  name="plot-plugin" >
+    <job  name="plot-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -925,6 +969,20 @@
         <property name="surefire">false</property>        
       </propertyset>
     </job>
+   <job  name="sauce-ondemand-plugin_hr" >
+      <inherit>
+        <job>standard-build</job>
+        <job>github</job>
+      </inherit>
+      <propertyset>
+        <property name="displayname">Sauce OnDemand plugin</property>
+        <property name="scm.git.path">/hudson-plugins/sauce-ondemand-plugin.git</property>
+<!--        <property name="link.wiki.text">Wiki</property>
+        <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin</property>
+        <property name="link.source.text">Source Code</property>
+        <property name="link.source.url">https://github.com/hudson-plugins/clover-plugin</property>            -->
+      </propertyset>
+    </job>     
     <job  name="shelve-project-plugin" >
       <inherit>
         <job>standard-build</job>
@@ -986,7 +1044,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.plugins.subversion.git</property>
       </propertyset>
     </job>
-    <job  name="surround-scm-plugin" >
+    <job  name="surround-scm-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -1062,7 +1120,7 @@
       </propertyset>
     </job>    
   
-    <job  name="ui-samples-plugin" >
+    <job  name="ui-samples-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -1084,7 +1142,7 @@
         <property name="scm.git.path">/gitroot/hudson/org.eclipse.hudson.tools.updatecenter.git</property>
       </propertyset>
     </job>    
-    <job  name="upstream-downstream-view-plugin" >
+    <job  name="upstream-downstream-view-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -1098,7 +1156,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/upstream-downstream-view-plugin</property>                                        
       </propertyset>
     </job>
-    <job  name="vault-plugin" >
+    <job  name="vault-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -1113,7 +1171,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="weblogic-deployer-plugin" >
+    <job  name="weblogic-deployer-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -1127,7 +1185,7 @@
         <property name="link.source.url">https://github.com/hudson-plugins/weblogic-deployer-plugin</property>                
       </propertyset>
     </job>
-    <job  name="windows-slaves-plugin" >
+    <job  name="windows-slaves-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
@@ -1142,7 +1200,7 @@
         <property name="surefire">false</property>
       </propertyset>
     </job>
-    <job  name="wrapper-script-plugin" >
+    <job  name="wrapper-script-plugin_hr" >
       <inherit>
         <job>standard-build</job>
         <job>github</job>
