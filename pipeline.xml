@@ -269,6 +269,7 @@
       <propertyset>
         <property name="displayname">Bugzilla Plugin</property>
         <property name="scm.git.path">/hudson-plugins/bugzilla-plugin.git</property>
+        <property name="surefire">false</property>
       </propertyset>
     </job>    
     <job  name="build-publisher-plugin" >
@@ -618,6 +619,7 @@
       <propertyset>
         <property name="displayname">Groovy Postbuild Plugin</property>
         <property name="scm.git.path">jenkinsci/groovy-postbuild-plugin.git</property>
+        <property name="surefire">false</property>        
       </propertyset>
     </job>
     <job  name="groovy-support-plugin_hr" >
