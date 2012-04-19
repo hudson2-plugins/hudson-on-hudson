@@ -634,6 +634,7 @@
         <property name="link.wiki.url">http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin</property>
         <property name="link.source.text">Source Code</property>
         <property name="link.source.url">https://github.com/hudson-plugins/clover-plugin</property>            -->
+        <property name="surefire">false</property>
       </propertyset>
     </job>    
     <job  name="gwt-plugin_core" >
